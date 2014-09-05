@@ -34,11 +34,12 @@ Ver `INSTALL.rst`.
 Requerimientos Funcionales
 --------------------------
 
-  - Scraping de los PDFs de resoluciones del digesto electrónico.
-  - Extracción de texto y metadatos de los PDFs e incorporación a la base de datos.
-  - Detección de resoluciones que realizan cambios en la planta docente.
-  - Etiquetado de personas: nombres, DNIs y legajos.
-  - Etiquetado de cargos: jerarquía, dedicación y código interno.
-  - Etiquetado de fechas, rangos de fechas y períodos.
-  - Etiquetado de eventos: designaciones interinas y por concurso, ceses de
-    designaciones, renuncias, licencias con y sin goce de haberes.
+- Scraping de los PDFs de resoluciones del digesto electrónico.
+- Extracción de texto y metadatos de los PDFs e incorporación a la base de datos.
+- Detección de resoluciones que realizan cambios en la planta docente.
+- Etiquetado de referencias a otras resoluciones y ordenanzas.
+- Etiquetado de personas: nombres, DNIs y legajos.
+- Etiquetado de cargos: jerarquía, dedicación y código interno.
+- Etiquetado de fechas, rangos de fechas y períodos.
+- Etiquetado de eventos: designaciones interinas y por concurso, ceses de
+  designaciones, renuncias, licencias con y sin goce de haberes.
