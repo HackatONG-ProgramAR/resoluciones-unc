@@ -1,3 +1,4 @@
+# -*- coding: utf-8 *-*
 import re
 import codecs
 
@@ -132,6 +133,22 @@ def options_file_re(filename):
     f.close()
     return options_re(options)
 
+
 def optional_re(option):
     result = '(' + option + ')?'
     return result
+
+
+def upperletters_re(name=None):
+    if name:
+        return u'(?P<<{}>>'.format(name) + tokenized_re(u'[A-ZÁÉÍÓÚÑ]*') + u')'
+    else:
+        return tokenized_re(u'[A-ZÁÉÍÓÚÑ]*')
+
+
+def lowerletters_re(name):
+    if name:
+        return u'(?P<<{}>>'.format(name) + tokenized_re(u'[a-záéíóúñ]*') + u')'
+    else:
+        return tokenized_re(u'[a-záéíóúñ]*')
+

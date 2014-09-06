@@ -23,5 +23,7 @@ if __name__ == '__main__':
     opts = docopt(__doc__, version=0.1)
     connect(opts['<dbname>'])
     docs = DocumentManager()
+
     pipeline = PreProcessPipeline(pipeline_steps, docs)
+
     pipeline.process_everything()

@@ -29,5 +29,6 @@ pipeline_steps = [
         PositionCodeNERRunner(),
         DateNERRunner(),
         ResolutionRefNERRunner(),
+        PersonNERRunner(),
         ], override=True)
 ]
