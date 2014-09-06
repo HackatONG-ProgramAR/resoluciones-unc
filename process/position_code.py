@@ -7,9 +7,6 @@ from process.regexp_ner import (RegExpNERRunner, options_re, options_file_re,
 								optional_re)
 
 
-# c6d, cargo 119/49
-
-
 class PositionCodeNERRunner(RegExpNERRunner):
 
     def __init__(self, override=False):
