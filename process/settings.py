@@ -6,6 +6,7 @@ from process.person import PersonNERRunner
 from process.date import DateNERRunner
 from process.position_code import PositionCodeNERRunner
 from process.resolution_ref import ResolutionRefNERRunner
+from process.position import PositionNERRunner
 
 
 # Optional custom step:
@@ -15,7 +16,7 @@ def extract_plain_text(doc):
 
 
 # Insert here your custom entities:
-CUSTOM_ENTITIES = ['date', 'position_code', 'resolution_ref']
+CUSTOM_ENTITIES = ['date', 'position_code', 'resolution_ref', 'position']
 
 
 set_custom_entity_kinds(zip(map(lambda x: x.lower(), CUSTOM_ENTITIES),
@@ -30,5 +31,6 @@ pipeline_steps = [
         DateNERRunner(),
         ResolutionRefNERRunner(),
         PersonNERRunner(),
+        PositionNERRunner(),
         ], override=True)
 ]
