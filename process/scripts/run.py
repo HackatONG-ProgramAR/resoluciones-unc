@@ -42,10 +42,10 @@ if __name__ == '__main__':
     set_custom_entity_kinds(zip(map(lambda x: x.lower(), CUSTOM_ENTITIES),
                                 CUSTOM_ENTITIES))
     pipeline = PreProcessPipeline([
-        extract_plain_text, # optional custom step
+        #extract_plain_text, # optional custom step
         TokenizeSentencerRunner(),
         CombinedNERRunner([
-            PersonNERRunner(),
+            #PersonNERRunner(),
             DateNERRunner(),
             ]),
     ], docs
