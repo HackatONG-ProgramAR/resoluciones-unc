@@ -23,7 +23,5 @@ if __name__ == '__main__':
     opts = docopt(__doc__, version=0.1)
     connect(opts['<dbname>'])
     docs = DocumentManager()
-    """set_custom_entity_kinds(zip(map(lambda x: x.lower(), CUSTOM_ENTITIES),
-                                CUSTOM_ENTITIES))"""
     pipeline = PreProcessPipeline(pipeline_steps, docs)
     pipeline.process_everything()
