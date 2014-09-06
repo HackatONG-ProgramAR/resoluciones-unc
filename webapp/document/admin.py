@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from django.db.models import Count
 
-from document.models import Document, Person, Date
+from document.models import Document, Person, Date, Entity
 
 
 class YearListFilter(admin.SimpleListFilter):
@@ -55,7 +55,7 @@ class InitialListFilter(admin.SimpleListFilter):
 
 
 class EntityAdmin(admin.ModelAdmin):
-
+    readonly_fields = ('kind', 'key')
     def occurrences(self, instance):
         occurrences = instance.occurrences()
         return '<br/>'.join(o.link_tag() for o in occurrences)
@@ -94,3 +94,4 @@ class DateAdmin(EntityAdmin):
 admin.site.register(Document, DocumentAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Date, DateAdmin)
+admin.site.register(Entity, EntityAdmin)

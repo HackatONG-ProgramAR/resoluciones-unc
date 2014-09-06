@@ -51,7 +51,7 @@ def person(request, id):
 def date(request, id):
     return redirect(urlresolvers.reverse('admin:document_date_change', args=(id,)))
 
-def position_code(request, id):
+def entity(request, id):
     return redirect(urlresolvers.reverse('admin:document_entity_change', args=(id,)))
 
 def document(request, id):
