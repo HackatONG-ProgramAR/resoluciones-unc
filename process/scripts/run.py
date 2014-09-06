@@ -20,6 +20,7 @@ from iepy.combined_ner import CombinedNERRunner
 
 from process.person import PersonNERRunner
 from process.date import DateNERRunner
+from process.position_code import PositionCodeNERRunner
 
 
 # Optional custom step:
@@ -29,7 +30,7 @@ def extract_plain_text(doc):
 
 
 # Insert here your custom entities:
-CUSTOM_ENTITIES = ['date']
+CUSTOM_ENTITIES = ['date', 'position_code']
 #CUSTOM_ENTITIES_FILES = []
 
 
@@ -45,7 +46,7 @@ if __name__ == '__main__':
         #extract_plain_text, # optional custom step
         TokenizeSentencerRunner(),
         CombinedNERRunner([
-            #PersonNERRunner(),
+            PositionCodeNERRunner(),
             DateNERRunner(),
             ], override=True),
     ], docs

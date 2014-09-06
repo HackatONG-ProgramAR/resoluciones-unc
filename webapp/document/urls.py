@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^person/(?P<id>\d+)$', views.person, name='person'),
     url(r'^date/(?P<id>\d+)$', views.date, name='date'),
     url(r'^document/(?P<id>\d+)$', views.document, name='document'),
+    url(r'^position_code/(?P<id>\d+)$', views.position_code, name='position_code'),
 )
