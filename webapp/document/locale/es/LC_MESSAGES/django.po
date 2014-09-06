@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Franco M. Luque <francolq@famaf.unc.edu.ar>, 2014.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-05 19:53-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:11
+msgid "year"
+msgstr "año"
+
+#: admin.py:17
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: admin.py:41
+msgid "initial"
+msgstr "inicial"
+
+#: admin.py:47
+msgid "Other"
+msgstr "Otros"
+
+#: admin.py:63
+msgid "occurrences"
+msgstr "menciones"
+
+#: admin.py:67
+msgid "occurrence count"
+msgstr "menciones"
+
+#: models.py:19
+msgid "document"
+msgstr "documento"
+
+#: models.py:20
+msgid "documents"
+msgstr "documentos"
+
+#: models.py:22
+msgid "number"
+msgstr "número"
+
+#: models.py:23 models.py:173
+msgid "date"
+msgstr "fecha"
+
+#: models.py:108
+msgid "key"
+msgstr "clave"
+
+#: models.py:161
+msgid "person"
+msgstr "persona"
+
+#: models.py:162
+msgid "persons"
+msgstr "personas"
+
+#: models.py:164
+msgid "name"
+msgstr "nombre"
+
+#: models.py:165
+msgid "identifier"
+msgstr "identificador"
+
+#: models.py:174
+msgid "dates"
+msgstr "fechas"
+
+#: templates/admin/base_site.html:4 templates/admin/base_site.html.py:7
+#: templates/admin/document/change_form.html:5
+#: templates/admin/document/change_list.html:5
+msgid "Document Browsing Site"
+msgstr "Navegador de Documentos"
+
+#: templates/document/file.html:43
+msgid "Document"
+msgstr "Documento"
+
+#: templates/document/file.html:47
+msgid "Pages"
+msgstr "Páginas"
+
+#: templates/document/file.html:50
+msgid "Source"
+msgstr "Fuente"
+
+#: templates/document/file.html:55
+msgid "previous"
+msgstr "anterior"
+
+#: templates/document/file.html:60
+msgid "next"
+msgstr "siguiente"
+
+#: templates/document/file.html:69
+msgid "Reference"
+msgstr "Referencia"
