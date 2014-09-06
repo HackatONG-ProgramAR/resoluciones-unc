@@ -47,7 +47,7 @@ if __name__ == '__main__':
         CombinedNERRunner([
             #PersonNERRunner(),
             DateNERRunner(),
-            ]),
+            ], override=True),
     ], docs
     )
     pipeline.process_everything()
