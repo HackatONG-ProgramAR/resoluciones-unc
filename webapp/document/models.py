@@ -3,6 +3,7 @@ import os
 
 from django.db import models
 from django.core import urlresolvers
+
 from django.utils.translation import ugettext_lazy as _
 
 from model_utils.managers import InheritanceManager
@@ -99,6 +100,9 @@ class DocumentFile(models.Model):
 class EntityKind(models.Model):
     name = models.CharField(max_length='100', primary_key=True)
 
+    def __str__(self):
+        return self.name.replace('_', ' ').title()
+
 
 class Entity(models.Model):
     class Meta:
@@ -125,7 +129,10 @@ class Entity(models.Model):
         title = clazz
         if extra_class:
             clazz += ' ' + extra_class
-        url = urlresolvers.reverse(self.kind.name, args=(self.id,))
+        try:
+            url = urlresolvers.reverse(self.kind.name, args=(self.id,))
+        except urlresolvers.NoReverseMatch:
+             url = urlresolvers.reverse('entity', args=(self.id,))
         return u'<a href="{}" class="{}" title="{}">{}</a>'.format(url, clazz, _(title), s)
 
     def __unicode__(self):
