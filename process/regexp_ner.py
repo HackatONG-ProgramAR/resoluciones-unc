@@ -131,3 +131,7 @@ def options_file_re(filename):
     options = f.read().strip().split('\n')
     f.close()
     return options_re(options)
+
+def optional_re(option):
+    result = '(' + option + ')?'
+    return result
