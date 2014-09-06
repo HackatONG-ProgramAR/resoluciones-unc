@@ -7,10 +7,11 @@ Installation
    - Python 2.7
    - Pip
    - MongoDB 2.2 or newer
+   - Scipy
 
    In a Debian based system you can simply do::
 
-    sudo apt-get install git python2.7 python-pip mongodb
+    sudo apt-get install git python2.7 python-pip mongodb python-scipy
 
 2. Create and activate a new
    `virtualenv <http://virtualenv.readthedocs.org/en/latest/virtualenv.html>`_
@@ -28,7 +29,7 @@ Installation
 
    and finally create and activate the virtualenv with::
 
-    mkvirtualenv resoluciones-unc
+    mkvirtualenv --system-site-packages resoluciones-unc
 
    (may need ``--python=/usr/bin/python2.7`` if 2.7 is not the default version).
 
