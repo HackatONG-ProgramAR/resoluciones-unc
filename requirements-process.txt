@@ -5,5 +5,5 @@ numpy
 scipy
 scikit-learn
 nltk
-git+https://github.com/francolq/iepy
-git+https://github.com/machinalis/refo
+-e /home/maury_green/iepy
+-e /home/maury_green/refo
