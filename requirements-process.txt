@@ -3,7 +3,6 @@ nose
 mongoengine
 numpy
 scipy
-scikit-learn
 nltk
 -e /home/maury_green/iepy
 -e /home/maury_green/refo
