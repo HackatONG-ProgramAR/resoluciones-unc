@@ -61,7 +61,7 @@ class DocumentFile(models.Model):
         file_path = os.path.join(data_root_path, filename)
         f = codecs.open(file_path, encoding='utf-8')
         text = f.read()
-        return '\n\n' + text # XXX: dirty (see core.scripts.createdb)
+        return text
 
     def tagged_text(self, highlight=None):
         document = self.document
