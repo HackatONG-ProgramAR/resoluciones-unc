@@ -10,7 +10,7 @@ Document Processing
 
 2. Create the Mongo database::
 
-    python process/scripts/createdb.py <dbname> <documents_path>
+    python process/scripts/createdb.py <dbname>
 
 4. Process the documents::
 
