@@ -1,0 +1,75 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+{% for kind, color in entity_kinds_colors %}
+.{{ kind.name }} {
+  color: black;
+  text-decoration: none;
+  background-color: {{ color }};
+}
+{% endfor %}
+.highlight {
+  border: 2px solid black;
+}
+table,th,td {
+  border: 1px solid black;
+}
+</style>
+{% endblock %}
+
+{% block extrahead %}
+<script type="text/javascript">
+// http://stackoverflow.com/questions/1402698/binding-arrow-keys-in-js-jquery
+document.onkeydown = function(e) {
+    e = e || window.event;
+    switch(e.which || e.keyCode) {
+        case 37: // left
+        document.getElementById('previous').click();
+        break;
+        case 39: // right
+        document.getElementById('next').click();
+        break;
+        default: return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+}
+</script>
+{% endblock %}
+
+{% block content %}<div id="content-main">
+<h1>{% trans 'Document' %}
+  <a href="{% url 'admin:document_document_change' document_file.document.number %}">
+  {{ document_file.document }}</a>
+  -
+  {% trans 'Pages' %} {{ document_file.pages }}
+</h1>
+
+<p>{% trans 'Source' %}: {{ document_file.filename }}</p>
+
+<p>
+{% if index > 0 %}
+<a id="previous" href="{% url 'file' document_file.document.number index|add:'-1' %}">
+  &lsaquo; {% trans 'previous' %}
+</a>
+{% endif %}
+|
+<a id="next" href="{% url 'file' document_file.document.number index|add:'1' %}">
+  {% trans 'next' %} &rsaquo;
+</a>
+</p>
+
+<table><tr><td>
+  {% autoescape off %}
+  {{ text|linebreaks }}
+  {% endautoescape %}
+</td><td>
+  <div>{% trans 'Reference' %}:</div> </br>
+  {% for kind, color in entity_kinds_colors %}
+    <div class="{{ kind.name }}">{% trans kind.name|capfirst %}</div> </br>
+  {% endfor %}
+</td></tr></table>
+
+{% endblock %}

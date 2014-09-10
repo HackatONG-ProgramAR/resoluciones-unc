@@ -1,0 +1,9 @@
+docopt
+nose
+mongoengine
+numpy
+scipy
+scikit-learn
+nltk
+git+https://github.com/machinalis/iepy
+git+https://github.com/machinalis/refo
