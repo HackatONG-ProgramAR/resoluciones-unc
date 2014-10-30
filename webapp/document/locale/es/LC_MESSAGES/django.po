@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-05 19:53-0300\n"
+"POT-Creation-Date: 2014-09-06 17:20-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,43 +42,43 @@ msgstr "menciones"
 msgid "occurrence count"
 msgstr "menciones"
 
-#: models.py:19
+#: models.py:20
 msgid "document"
 msgstr "documento"
 
-#: models.py:20
+#: models.py:21
 msgid "documents"
 msgstr "documentos"
 
-#: models.py:22
+#: models.py:23
 msgid "number"
 msgstr "número"
 
-#: models.py:23 models.py:173
+#: models.py:24 models.py:180
 msgid "date"
 msgstr "fecha"
 
-#: models.py:108
+#: models.py:112
 msgid "key"
 msgstr "clave"
 
-#: models.py:161
+#: models.py:168
 msgid "person"
 msgstr "persona"
 
-#: models.py:162
+#: models.py:169
 msgid "persons"
 msgstr "personas"
 
-#: models.py:164
+#: models.py:171
 msgid "name"
 msgstr "nombre"
 
-#: models.py:165
+#: models.py:172
 msgid "identifier"
 msgstr "identificador"
 
-#: models.py:174
+#: models.py:181
 msgid "dates"
 msgstr "fechas"
 
@@ -87,6 +87,90 @@ msgstr "fechas"
 #: templates/admin/document/change_list.html:5
 msgid "Document Browsing Site"
 msgstr "Navegador de Documentos"
+
+#: templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: templates/admin/index.html:21
+#, fuzzy, python-format
+msgid "%(name)s"
+msgstr "nombre"
+
+#: templates/admin/index.html:34 templates/admin/document/change_form.html:24
+msgid "Add"
+msgstr ""
+
+#: templates/admin/index.html:40
+msgid "Change"
+msgstr ""
+
+#: templates/admin/index.html:50
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:59
+msgid "Recent Actions"
+msgstr ""
+
+#: templates/admin/index.html:60
+msgid "My Actions"
+msgstr ""
+
+#: templates/admin/index.html:64
+msgid "None available"
+msgstr ""
+
+#: templates/admin/index.html:78
+#, fuzzy
+msgid "Unknown content"
+msgstr "Desconocido"
+
+#: templates/admin/document/change_form.html:21
+#: templates/admin/document/change_list.html:43
+msgid "Home"
+msgstr ""
+
+#: templates/admin/document/change_form.html:40
+msgid "History"
+msgstr ""
+
+#: templates/admin/document/change_form.html:42
+msgid "View on site"
+msgstr ""
+
+#: templates/admin/document/change_form.html:55
+#: templates/admin/document/change_list.html:75
+msgid "Please correct the error below."
+msgstr ""
+
+#: templates/admin/document/change_form.html:55
+#: templates/admin/document/change_list.html:75
+msgid "Please correct the errors below."
+msgstr ""
+
+#: templates/admin/document/change_list.html:65
+#, python-format
+msgid "Add %(name)s"
+msgstr ""
+
+#: templates/admin/document/change_list.html:86
+msgid "Filter"
+msgstr ""
+
+#: templates/admin/document/change_list_results.html:18
+msgid "Remove from sorting"
+msgstr ""
+
+#: templates/admin/document/change_list_results.html:19
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: templates/admin/document/change_list_results.html:20
+msgid "Toggle sorting"
+msgstr ""
 
 #: templates/document/file.html:43
 msgid "Document"
@@ -111,3 +195,12 @@ msgstr "siguiente"
 #: templates/document/file.html:69
 msgid "Reference"
 msgstr "Referencia"
+
+msgid "resolution_ref"
+msgstr "resolución"
+
+msgid "position_code"
+msgstr "código cargo"
+
+msgid "position"
+msgstr "jerarquía"
