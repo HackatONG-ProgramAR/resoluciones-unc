@@ -4,12 +4,11 @@ import codecs
 
 from nltk.text import TokenSearcher as NLTKTokenSearcher
 
-from iepy.models import PreProcessSteps, Entity, EntityOccurrence
-from iepy.preprocess import BasePreProcessStepRunner
+from iepy.data.models import Entity, EntityOccurrence
+from iepy.preprocess.ner.base import BaseNERRunner
 
 
-class RegExpNERRunner(BasePreProcessStepRunner):
-    step = PreProcessSteps.ner
+class RegExpNERRunner(BaseNERRunner):
 
     def __init__(self, label, regexp, override=False):
         self.label = label
@@ -17,13 +16,7 @@ class RegExpNERRunner(BasePreProcessStepRunner):
 
         super(RegExpNERRunner, self).__init__(override)
 
-    def __call__(self, doc):
-        # this step does not requires PreProcessSteps.tagging:
-        if not doc.was_preprocess_done(PreProcessSteps.sentencer):
-            return
-        if not self.override and doc.was_preprocess_done(PreProcessSteps.ner):
-            return
-
+    def run_ner(self, doc):
         entities = []
         tokens = doc.tokens
         searcher = TokenSearcher(tokens)
@@ -31,8 +24,7 @@ class RegExpNERRunner(BasePreProcessStepRunner):
             entity_oc = self.process_match(match)
             entities.append(entity_oc)
 
-        doc.set_preprocess_result(PreProcessSteps.ner, entities)
-        doc.save()
+        return entities
 
     def process_match(self, match):
         name = ' '.join(match.group())

@@ -19,6 +19,14 @@ from iepy.data.db import DocumentManager
 from iepy.preprocess.stanford_preprocess import StanfordPreprocess
 from iepy.preprocess.pipeline import PreProcessPipeline
 from iepy.preprocess.segmenter import SyntacticSegmenterRunner
+from iepy.preprocess.tokenizer import TokenizeSentencerRunner
+from iepy.preprocess.ner.combiner import CombinedNERRunner
+
+from process.person import PersonNERRunner
+from process.date import DateNERRunner
+from process.position_code import PositionCodeNERRunner
+from process.resolution_ref import ResolutionRefNERRunner
+from process.position import PositionNERRunner
 
 
 if __name__ == '__main__':
@@ -28,7 +36,15 @@ if __name__ == '__main__':
     opts = docopt(__doc__, version=iepy.__version__)
     docs = DocumentManager()
     pipeline = PreProcessPipeline([
-        StanfordPreprocess(),
+        #StanfordPreprocess(override=True),
+        TokenizeSentencerRunner(),
+        CombinedNERRunner([
+            PositionCodeNERRunner(),
+            DateNERRunner(),
+            ResolutionRefNERRunner(),
+            PersonNERRunner(),
+            PositionNERRunner(),
+            ], override=True),
         SyntacticSegmenterRunner(increment=True)
     ], docs)
     pipeline.process_everything()

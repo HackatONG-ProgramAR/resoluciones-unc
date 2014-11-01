@@ -1,7 +1,7 @@
 # -*- coding: utf-8 *-*
 import codecs
 
-from iepy.models import Entity, EntityOccurrence
+from iepy.data.models import Entity, EntityOccurrence
 
 from process.regexp_ner import RegExpNERRunner, options_re, options_file_re,\
     upperletters_re, lowerletters_re, tokenized_re
@@ -11,7 +11,6 @@ class PersonNERRunner(RegExpNERRunner):
 
     def __init__(self, override=False):
         # TODO: write this regexp!
-        print 'holas'
 
         #surname_re = upperletters_re('surname')
         surname_re = u'(?P<<surname>><[A-ZÁÉÍÓÚÑ]*>)'
