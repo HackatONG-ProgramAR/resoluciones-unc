@@ -28,9 +28,7 @@ class PersonNERRunner(RegExpNERRunner):
         name = ' '.join(match.group('name'))
         #complete_name = name + ' ' + surname
         kind = self.label
-        entity, created = Entity.objects.get_or_create(key=name, kind=kind,
-                                                       defaults={'canonical_form': name})
         offset, offset_end = match.span()
-        entity_oc = EntityOccurrence(entity=entity, offset=offset, offset_end=offset_end)
+        entity_oc = self.build_occurrence(name, kind, name, offset, offset_end)
 
         return entity_oc

@@ -29,10 +29,8 @@ class RegExpNERRunner(BaseNERRunner):
     def process_match(self, match):
         name = ' '.join(match.group())
         kind = self.label
-        entity, created = Entity.objects.get_or_create(key=name, kind=kind,
-                defaults={'canonical_form': name})
         offset, offset_end = match.span()
-        entity_oc = EntityOccurrence(entity=entity, offset=offset, offset_end=offset_end)
+        entity_oc = self.build_occurrence(name, kind, name, offset, offset_end)
 
         return entity_oc
 
@@ -54,7 +52,7 @@ class TokenSearcher(NLTKTokenSearcher):
         #token_start, token_end = 0, 0
         while True:
             try:
-                m = i.next()
+                m = next(i)
                 start, end = m.span()
                 # FIXME: do not count from the beggining
                 #token_start = token_start  + self._raw[last_start:start].count('><')
@@ -63,7 +61,7 @@ class TokenSearcher(NLTKTokenSearcher):
                 token_start = self._raw[:start].count('><')
                 token_end = self._raw[:end].count('><')
                 yield MatchObject(m, token_start, token_end)
-            except:
+            except StopIteration:
                 return
 
 
