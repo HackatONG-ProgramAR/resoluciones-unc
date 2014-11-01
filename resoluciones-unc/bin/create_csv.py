@@ -1,9 +1,9 @@
 """
-Database creation script.
+CSV creation script.
 
 Usage:
-    createdb.py <dbname>
-    createdb.py -h | --help | --version
+    create_csv.py <csv_filename>
+    create_csv.py -h | --help | --version
 
 Options:
   -h --help             Show this screen
@@ -14,17 +14,16 @@ import os
 import codecs
 from docopt import docopt
 
-from iepy.db import connect, DocumentManager
-
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     logger = logging.getLogger('createdb')
     opts = docopt(__doc__, version=0.1)
-    dbname = opts['<dbname>']
+    csv_filename = opts['<csv_filename>']
 
-    connect(dbname)
-    docs = DocumentManager()
+    csv_file = codecs.open(csv_filename, 'w', encoding='utf-8')
+
+    csv_file.write('document_id,document_text\n')
 
     # Create the documents.
     for i in [7, 30, 102]:
@@ -32,14 +31,8 @@ if __name__ == '__main__':
         file_path = os.path.join('data', 'examples', filename)
         file_text = codecs.open(file_path, encoding='utf-8').read()
 
-        docs.create_document(
-            identifier=filename, # a unique identifier
-            text=file_text,
-            metadata={
-                # anything you want here
-                'number': i,
-                'year': 2014,
-                'files': [(file_path, '', 0)],
-            })
+        csv_file.write(u'{},"{}"\n'.format(filename, file_text))
 
-    logger.info('Created database %s', dbname)
+    csv_file.close()
+
+    logger.info('Created CSV %s', csv_filename)
